@@ -16,8 +16,23 @@
 
 .product__content h5 a {
   color: #212245;
+  font-size: 1rem;
 }
 
-.product__content {
-  margin-bottom: 20px;
+.product__content h5 {
+  margin-bottom: 30px;
+}
+
+.product__price {
+  font-weight: 600;
+  font-style: 1.2rem;
+  color: #df2020;
+}
+.addToCart__btn {
+  border: none;
+  padding: 7px 25px;
+  background: #df2020;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 0.9rem;
 }
