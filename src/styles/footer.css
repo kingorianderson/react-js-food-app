@@ -1,14 +1,15 @@
 .footer {
-  padding: 50px 0px;
+  padding-top: 50px;
+  padding-bottom: 30px;
   background: #fde4e4;
 }
 
 .footer__logo img {
   width: calc(100% - 80%);
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
-.footer__logo {
+.footer__logo h5 {
   font-weight: 600;
   font-size: 1rem;
   margin-bottom: 15px;
@@ -21,12 +22,18 @@
 }
 
 .delivery__time-item {
-  font-weight: 600;
-  font-size: 1rem;
-  color: #212245;
   background: transparent !important;
 }
 
+.delivery__time-item span {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #212245;
+}
+
+.delivery__time-item p {
+  color: #212245;
+}
 .footer__title {
   font-size: 1.1rem;
   color: #212245;
@@ -42,7 +49,6 @@
   align-items: center;
   cursor: pointer;
 }
-
 .newsletter input {
   background: transparent;
   border: none;
@@ -53,15 +59,21 @@
   outline: none;
 }
 
-.newsletter input ::placeholder {
-  color: #212245;
-}
-.send {
-  color: #df2020;
-  margin-right: 4px;
+.newsletter span {
+  background: #df2020;
+  padding: 5px 30px;
+  border-radius: 5px;
 }
 
-.social__links span {
+.newsletter span i {
+  color: #fff;
+}
+
+.newsletter input::placeholder {
+  color: #212245;
+}
+
+.social__links span i {
   padding: 5px;
   background: #df2020;
   color: #fff;

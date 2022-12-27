@@ -1,8 +1,12 @@
-import { useRef } from "react";
+import React, { useRef, useEffect } from "react";
+
 import { Container } from "reactstrap";
-import Logo from "../../assets/images/res-logo.png";
+import logo from "../../assets/images/res-logo.png";
 import { NavLink, Link } from "react-router-dom";
-import { RiShoppingCartLine, RiUserLine, RiMenuLine } from "react-icons/ri";
+import { useSelector, useDispatch } from "react-redux";
+
+import { cartUiActions } from "../../store/shopping-cart/cartUiSlice";
+
 import "../../styles/header.css";
 
 const nav__links = [
@@ -26,18 +30,41 @@ const nav__links = [
 
 const Header = () => {
   const menuRef = useRef(null);
+  const headerRef = useRef(null);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const dispatch = useDispatch();
+
   const toggleMenu = () => menuRef.current.classList.toggle("show__menu");
 
+  const toggleCart = () => {
+    dispatch(cartUiActions.toggle());
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (
+        document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80
+      ) {
+        headerRef.current.classList.add("header__shrink");
+      } else {
+        headerRef.current.classList.remove("header__shrink");
+      }
+    });
+
+    return () => window.removeEventListener("scroll");
+  }, []);
+
   return (
-    <header className="header">
+    <header className="header" ref={headerRef}>
       <Container>
         <div className="nav__wrapper d-flex align-items-center justify-content-between">
           <div className="logo">
-            <img src={Logo} alt="LOGO" />
-            <h5>Chakula Kitamu</h5>
+            <img src={logo} alt="logo" />
+            <h5>Tasty Treat</h5>
           </div>
 
-          {/********** Menu **********/}
+          {/* ======= menu ======= */}
           <div className="navigation" ref={menuRef} onClick={toggleMenu}>
             <div className="menu d-flex align-items-center gap-5">
               {nav__links.map((item, index) => (
@@ -53,21 +80,22 @@ const Header = () => {
               ))}
             </div>
           </div>
-          {/********** Nav right icons *********/}
-          <div className="nav__right d-flex align-item-center gap-4">
-            <span className="cart__icon">
-              <RiShoppingCartLine />
-              <span className="cart__badge">3</span>
+
+          {/* ======== nav right icons ========= */}
+          <div className="nav__right d-flex align-items-center gap-4">
+            <span className="cart__icon" onClick={toggleCart}>
+              <i class="ri-shopping-basket-line"></i>
+              <span className="cart__badge">{totalQuantity}</span>
             </span>
 
             <span className="user">
               <Link to="/login">
-                <RiUserLine />
+                <i class="ri-user-line"></i>
               </Link>
             </span>
 
             <span className="mobile__menu" onClick={toggleMenu}>
-              <RiMenuLine />
+              <i class="ri-menu-line"></i>
             </span>
           </div>
         </div>
