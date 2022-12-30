@@ -48,7 +48,7 @@ const Footer = () => {
               </ListGroupItem>
 
               <ListGroupItem className=" delivery__time-item border-0 ps-0">
-                <span>Email: example@gmail.com</span>
+                <span>Email: contact@kingori.co.ke</span>
               </ListGroupItem>
             </ListGroup>
           </Col>
