@@ -1,5 +1,9 @@
-## Food Ordering App
+<div align="center">
+<img width="100px" src="./public/android-chrome-192x192.png" />
 
+  <h2>Food Ordering App</h2>
+
+</div>
 ### Features:
 
 ---
