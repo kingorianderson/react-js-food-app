@@ -2,6 +2,8 @@
 <img width="100px" src="./public/android-chrome-192x192.png" />
 
   <h2>Food Ordering App</h2>
+  
+  <a href="https://food-ordering-app-ke.netlify.app"><strong>➥ Live Demo</strong></a>
 
 </div>
 <br />
